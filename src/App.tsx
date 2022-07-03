@@ -5,6 +5,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { MovieCard } from './pages/MovieCard/MovieCard';
 import Home from './pages/Home/Home';
 
+import './styles/App.scss'
+
 
 const App: React.FC = () => {
   return (
