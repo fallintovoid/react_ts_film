@@ -4,7 +4,7 @@ import s from './Home.module.scss'
 
 type Props = {}
 
-const Home = (props: Props) => {
+const Home: React.FC = (props: Props) => {
   return (
     <div className={s.homepage}>
         <div className={s.brand}>
@@ -15,4 +15,4 @@ const Home = (props: Props) => {
   )
 }
 
-export default Home
+export default React.memo(Home);

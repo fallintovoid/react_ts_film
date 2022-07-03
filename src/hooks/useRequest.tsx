@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 import { useState, useCallback } from 'react'
 
-type Props = {}
+// type Props = {}
 
-const useRequest = (props: Props) => {
+const useRequest = () => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const request = useCallback(async (url: string) => {
