@@ -1,12 +1,12 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 type Props = {}
 
 const useRequest = (props: Props) => {
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(true)
-    const request = async (url: string) => {
+    const request = useCallback(async (url: string) => {
         try {
             const res = await fetch(url);
             if (!res.ok) {
@@ -21,7 +21,7 @@ const useRequest = (props: Props) => {
             setLoading(false);
             throw error;
         }
-    }
+    }, [])
     return {request, loading, error}
 }
 
