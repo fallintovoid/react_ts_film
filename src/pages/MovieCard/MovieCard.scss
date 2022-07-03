@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import '../../styles/utils/mixins.scss';
+
+.movie {
+    width: 100%;
+    height: 400px;
+    display: flex;
+
+    background-color: #29216B;
+
+    &__img {
+        background-image: url(../../images/imgs/Laptop.png);
+
+        background-repeat: no-repeat;
+
+        background-position: center center;
+
+        flex-grow: 1;
+
+        background-color: #BCD1FF;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #16113B;
+
+        flex-grow: 1;
+        
+
+        &--title {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@mixin hover($property, $value, $delay) {
+    transition: #{$delay};
+
+    &:hover {
+        #{$property}: $value;
+    }
+}
+
+@mixin square($pixels) {
+    width: #{$pixels};
+    height: #{$pixels};
+}
