@@ -4,8 +4,8 @@ import { useState, useCallback } from 'react'
 type Props = {}
 
 const useRequest = (props: Props) => {
-    const [error, setError] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
     const request = useCallback(async (url: string) => {
         try {
             const res = await fetch(url);
