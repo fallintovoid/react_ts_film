@@ -8,8 +8,8 @@ const Home = (props: Props) => {
   return (
     <div className={s.homepage}>
         <div className={s.brand}>
-            <GlobalSvgSelector id={`logo-home`} width={70} height={70}/>
-            <h1>Spectrum</h1>
+            <GlobalSvgSelector id={`logo-home`}/>
+            <h1 className={s.brand_text}>Spectrum</h1>
         </div>
     </div>
   )
