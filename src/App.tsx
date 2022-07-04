@@ -15,7 +15,6 @@ const App: React.FC = () => {
         <Route path='/' element={<Navigate to='/home' replace={true} />} />
         <Route path='/home' element={<Home />} />
         <Route path='/movie' element={<MovieCard />} />
-        <Route path='/notexist' element={<h1></h1>} />
       </Routes>
     </div>
   );

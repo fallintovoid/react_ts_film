@@ -17,4 +17,4 @@ const gorequest = () => {
     return { request }
 }
 
-export default gorequest
+export default gorequest;
