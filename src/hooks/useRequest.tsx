@@ -5,12 +5,12 @@ import { useState, useCallback } from 'react'
 
 const useRequest = () => {
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const request = useCallback(async (url: string) => {
+        setLoading(true)
         try {
             const res = await fetch(url);
             if (!res.ok) {
-                setLoading(false)
                 throw new Error("Couldn`t fetch status:" + res.status);
             }
             const data = await res.json()
