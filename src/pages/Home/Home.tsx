@@ -1,16 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import GlobalSvgSelector from '../../images/GlobalSvgSelector'
-import s from './Home.module.scss'
 
-type Props = {}
+import { Link } from 'react-router-dom'
 
-const Home: React.FC = (props: Props) => {
+import './Home.scss'
+
+
+const Home: React.FC = () => {
+
+  console.log('render home');
+  
+
+  const [query, setQuery] = useState<string>('');
+
   return (
-    <div className={s.homepage}>
-        <div className={s.brand}>
+    <div className="homepage">
+      <nav className="navbar" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <div className="navbar-item">
             <GlobalSvgSelector id={`logo-home`}/>
-            <h1 className={s.brand_text}>Spectrum</h1>
+            Spectrum
+          </div>
         </div>
+      </nav>
+
+      <div className='bottom'>
+        <h1>Meta Universe</h1>
+        <h2>Meta Films</h2>
+      </div>
+
+      <main className='main'>
+        <input 
+          type="text"
+          value={query}
+          onChange={({ target }) => setQuery(target.value)}
+        />
+        <Link 
+          to={`/movie/${query}`}
+        >
+          Go
+        </Link>
+      </main>
     </div>
   )
 }

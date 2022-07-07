@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import '../../styles/utils/mixins.scss';
+
 .container {
     width: 80%;
     .movie {
@@ -10,8 +11,8 @@
         background-color: #29216B;
     
         &__img {
-            flex-grow: 1;
-    
+            @include square(400px);
+            
             background-color: #BCD1FF;
         }
     
@@ -20,10 +21,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            font-size: 32px;
     
             background-color: #16113B;
-    
-            flex-grow: 1;
+
+            width: 700px;
+            height: 350px;
+            
+            color: white;
             
     
             &--title {

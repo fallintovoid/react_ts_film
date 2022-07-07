@@ -1,28 +1,40 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { getMovie } from "../../api/api";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import { Loader } from "../../special_components/Loader";
+
+import { AppDispatch, setFilm } from "../../store";
+import { getFilmSelector, getLoadingSelector } from "../../store/selectors";
 
 import './MovieCard.scss';
 
 export const MovieCard: React.FC = () => {
-    const [movie, setMovie] = useState<Movie | null>(null);
 
-    const getMovieFromServ = useCallback(async () => {
-        const response = await getMovie('dd');
+    const dispatch = useDispatch<AppDispatch>();
 
-        setMovie(response);
-    }, []);
+    const { parami } = useParams<{ parami: string }>();
 
     useEffect(() => {
-        getMovieFromServ();
+        if (parami) {
+            dispatch(setFilm(parami));
+        }
     }, []);
 
     console.log('render movie');
 
+    const movie = useSelector(getFilmSelector);
+
+    const isLoading = useSelector(getLoadingSelector);
+
     return (
         <div className="container">
-            {!movie ? (<h1>Loading</h1>) : (
+            {isLoading ? <Loader /> : (
                 <div className="movie">
-                    <div className="movie__img"></div>
+                    <div className="movie__img">
+                        <img src={movie?.Poster} />
+                    </div>
                     <div className="movie__body">
                         <div className="movie__body--title">
                             {movie?.Title}
